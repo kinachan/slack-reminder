@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Slack-Reminder</title>
+  <link rel="stylesheet" href="./css/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="./js/moment.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+</head>
+
+<body>
+  <section class="description">
+    <div class="container">
+      <div class="row">
+        <div class="col-md">
+          <div class="col-sm-12 col-xs-12">
+            <h1>Slack-Reminder</h1>
+            <h6>Slackのリマインドコマンドを簡単に作成するツールです</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-xs-6">
+          <div class="form-group">
+            <label for="Who">Who(誰に対してのリマインドか)</label>
+            <select class="form-control" id="Who">
+              <option value="me">自分</option>
+              <option value="@channel">チャンネル全員</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-6">
+          <div class="form-group">
+            <label for="When">When(いつリマインドするか)</label>
+            <input class="form-control" type="datetime-local" id="When" />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-xs-12">
+          <div class="form-group">
+            <label for="What">What(何をリマインドするか)</label>
+            <textarea class="form-control" rows="3" id="What" placeholder="リマインドしたい内容"></textarea>
+          </div>
+        </div>
+      </div>
+      <button class="btn copy-to-clipboard btn-primary" data-clipboard-target="#Result">
+          CopyToClipboard
+      </button>
+      <div class="row">
+        <div class="col-sm-12 col-xs-12">
+          <div class="result-area">
+            <code id="Result"></code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="CopyMessage">クリップボードにコピーされました。</div>
+  <script src="./js/index.js"></script>
+</body>
+</html>
