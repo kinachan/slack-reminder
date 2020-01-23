@@ -23,15 +23,15 @@ const getCookie = (name) => {
 const setCookie = (option) => {
   const {name, value, isMaxAge, expires, maxAge, domain, path, isSecure} = option;
 
-  const keyValue = `${name}=${value},`
+  const keyValue = `${name}=${value};`
   
-  let expiresString = expires == null ? '' : `expires=${expires}`;
+  let expiresString = expires == null ? '' : `expires=${expires};`;
   const oneMonth = new Date().getTime() + 60 * 60 * 24 * 30;
   const maxAgeVal = isMaxAge ? oneMonth.toString() : maxAge;
-  const maxAgeString = isMaxAge ? ` max-age=${maxAgeVal},` : '';
+  const maxAgeString = isMaxAge ? ` max-age=${maxAgeVal};` : '';
 
-  const domainString = domain != null ? ` domain=${domain},`: '';
-  const pathString = path != null ? ` path=${path},`: '';
+  const domainString = domain != null ? ` domain=${domain};`: '';
+  const pathString = path != null ? ` path=${path};`: '';
 
   const cookie = keyValue + maxAgeString + expiresString + domainString + pathString;
   document.cookie = cookie;
