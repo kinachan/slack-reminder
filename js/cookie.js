@@ -4,7 +4,6 @@ const getAllCookies = () => {
   const cookies = document.cookie.split('; ');
   const result = {};
   const cookieList = cookies.forEach(cookie => {
-    if (cookie.indexOf('name=') === -1) return;
     const name = cookie.split('=')[0];
     const value = cookie.split('=')[1]
     result[name] = value;
