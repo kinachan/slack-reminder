@@ -14,7 +14,7 @@ code {
   line-height: 3
 }
 
-#CopyMessage {
+.snackbar {
   visibility: hidden;
   min-width: 250px; 
   margin-left: -125px;
@@ -29,7 +29,7 @@ code {
   bottom: 30px;
 }
 
-#CopyMessage.show {
+.snackbar.show {
   visibility: visible; 
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;

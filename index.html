@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <script src="./js/moment.js"></script>
+  <script src="./js/cookie.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
 </head>
 
@@ -52,6 +53,14 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-sm-12 col-xs-12">
+          <div class="form-group">
+            <label for="MentionList">メンションリスト登録用</label>
+            <input class="form-control" id="MentionList" placeholder="ブラウザで保持させたいメンションリスト。カンマ区切りで登録してください">
+          </div>
+        </div>
+      </div>
       <button class="btn copy-to-clipboard btn-primary" data-clipboard-target="#Result">
           CopyToClipboard
       </button>
@@ -64,7 +73,8 @@
       </div>
     </div>
   </section>
-  <div id="CopyMessage">クリップボードにコピーされました。</div>
+  <div id="CopyMessage" class="snackbar">クリップボードにコピーされました。</div>
+  <div id="MentionMessage" class="snackbar">メンションのリストをCookieへ反映しました</div>
   <script src="./js/index.js"></script>
 </body>
 </html>
