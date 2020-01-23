@@ -13,7 +13,7 @@ const getAllCookies = () => {
 
 const getCookie = (name) => {
   const cookies = getAllCookies();
-  if (cookies == null || !cookies.includes(name)) return null;
+  if (cookies == null || !cookies.hasOwnProperty(name)) return null;
   
   const value = cookies[name];
 
