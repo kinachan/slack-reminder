@@ -86,7 +86,7 @@ const init = () => {
 const showSnackBar = (elem) => {
   elem.classList.add('show');
   setTimeout(() => {
-    copyMessage.classList.remove('show');
+    elem.classList.remove('show');
   }, 3000);
 }
 
