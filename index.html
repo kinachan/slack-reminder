@@ -29,13 +29,31 @@
   <section>
     <div class="container">
       <div class="row">
-        <div class="col-sm-6 col-xs-6">
+        <div class="col-sm-12 col-xs-12">
           <div class="form-group">
             <label for="Who">Who(誰に対してのリマインドか)</label>
             <select class="form-control" id="Who">
               <option value="me">自分</option>
               <option value="@channel">チャンネル全員</option>
             </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-xs-6">
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="whenChoose" id="WhenDate" checked value="date">
+              <label class="form-check-label" for="WhenDate">日時指定</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="whenChoose" id="WhenEveryWeek" value="every weekday">
+              <label class="form-check-label" for="WhenEveryWeek">平日</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="whenChoose" id="WhenEveryDay" value="everyday">
+              <label class="form-check-label" for="WhenEveryDay">毎日</label>
+            </div>
           </div>
         </div>
         <div class="col-sm-6 col-xs-6">
@@ -62,7 +80,7 @@
         </div>
       </div>
       <button class="btn copy-to-clipboard btn-primary" data-clipboard-target="#Result">
-          CopyToClipboard
+        CopyToClipboard
       </button>
       <div class="row">
         <div class="col-sm-12 col-xs-12">
@@ -77,4 +95,5 @@
   <div id="MentionMessage" class="snackbar">メンションのリストをCookieへ反映しました</div>
   <script src="./js/index.js"></script>
 </body>
+
 </html>

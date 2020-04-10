@@ -1,12 +1,13 @@
 const whatElem = document.getElementById('What');
 const whenElem = document.getElementById('When');
 const whoElem = document.getElementById('Who');
+const whenRadios = document.getElementsByName('whenChoose');
 const clipboard = new ClipboardJS(".copy-to-clipboard");
 
 const resultElem = document.getElementById('Result');
 const mentionList = document.getElementById('MentionList');
 
-const events = [whatElem, whenElem, whoElem];
+const events = [whatElem, whenElem, whoElem, ...whenRadios];
 
 mentionList.addEventListener('blur', (ev) => {
   const text = ev.target.value;
@@ -37,6 +38,10 @@ const createCommand = () => {
   const when = whenElem.value;
   const who = whoElem.value;
 
+  const whenRadio = [...whenRadios].find(x =>{
+    return x.checked;
+  }).value;
+
   if (when == '' || when == null) {
     resultElem.innerText = '正しい日付を入力してください';
     return;
@@ -44,14 +49,26 @@ const createCommand = () => {
 
   const date = when.split('T')[0].replace(/\-/g, '/');
   const time = when.split('T')[1];
-  // const 
+  
+  if (whenRadio == 'date') {
+    const command = `/remind ${who} ${what} on ${date} ${time}`;
+    resultElem.innerText = command;
+  
+    return adjustVh();
+  }
+  
 
-  const command = `/remind ${who} ${what} on ${date} ${time}`;
+  const command = `/remind ${who} ${what} on ${time} ${whenRadio}`;
   resultElem.innerText = command;
 
+  adjustVh();
+}
+
+const adjustVh = ()=> {
   let vh = window.innerHeight * 0.01;
   // カスタム変数--vhの値をドキュメントのルートに設定
   document.documentElement.style.setProperty('--vh', `${vh}px`);
+  return true;
 }
 
 events.forEach(e => {
